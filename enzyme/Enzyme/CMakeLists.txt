@@ -129,6 +129,11 @@ if (${ENZYME_STATIC_LIB})
         DEPENDS
         intrinsics_gen
     )
+    install(TARGETS EnzymeStatic-${LLVM_VERSION_MAJOR}
+        EXPORT EnzymeTargets
+        LIBRARY DESTINATION lib COMPONENT shlib
+        PUBLIC_HEADER DESTINATION "${INSTALL_INCLUDE_DIR}/Enzyme"
+        COMPONENT dev)
 endif()
 
 if (${ENZYME_EXTERNAL_SHARED_LIB})
